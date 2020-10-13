@@ -1,0 +1,8 @@
+deps/
+.idea
+*.dSYM
+bin/
+cmake-build-debug/
+*.so
+*env
+*.DS_Store

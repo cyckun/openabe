@@ -9,10 +9,13 @@ cpabe = openabe.CreateABEContext("CP-ABE")
 
 cpabe.generateParams()
 
-cpabe.keygen("|two|three|", "alice")
+#cpabe.keygen("|two|three|", "alice")
+cpabe.keygen("Dept:SecurityResearch|level = 2| Company:ByteDance", "alice")
 
 pt1 = b"hello world!"
-ct = cpabe.encrypt("((one or two) and three)", pt1)
+# ct = cpabe.encrypt("((one or two) and three)", pt1)
+ct = cpabe.encrypt("(((Dept:SecurityResearch) or (level >= 4 )) and (Company:ByteDance))", pt1)
+
 print("ABE CT: ", len(ct))
 
 pt2 = cpabe.decrypt("alice", ct)

@@ -146,7 +146,7 @@ void OpenABECryptoContext::importPublicParams(const std::string &authID,
     key += Base64Decode(keyBlob);
   else
     key += keyBlob;
-
+  std::cout << "b64decode end." << std::endl;
   string keyID = authID;
   result = schemeContextCCA_->loadMasterPublicParams(keyID, key);
   if (result != OpenABE_NOERROR) {
